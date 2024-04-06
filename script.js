@@ -98,7 +98,21 @@ const linkedList = function() {
     }
 //find(value): returns the index of the node containing value, or NULL if not found
     const find = function(value) {
+        let index = 0;
+        let currentNode = listHead;
 
+        if(!currentNode) {
+            return null
+        }
+
+        while(currentNode.next !== null) {
+            index++;
+            if(currentNode.value === value) {
+                return index;
+            }
+            currentNode = currentNode.next;
+        }
+        return null;
     }
 //toString: represents your linked list object as strings. The format should be ( value ) -> ( value ) -> ( null )
     const toString = function() {
