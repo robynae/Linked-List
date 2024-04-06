@@ -71,7 +71,9 @@ const linkedList = function() {
     }
 //pop: removes the last element from the list
     const pop = function() {
-
+        if(listHead.next === null) {
+            listHead = null;
+        }
     }
 //contains(value): returns true if the given value is present in the list, otherwise returns false
     const contains = function(value) {
