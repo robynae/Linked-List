@@ -71,13 +71,30 @@ const linkedList = function() {
     }
 //pop: removes the last element from the list
     const pop = function() {
-        if(listHead.next === null) {
+        if(!listHead) {
+            return null;
+        } else if(listHead.next === null) {
             listHead = null;
         }
+
+        at(size() - 2).next = null;
     }
 //contains(value): returns true if the given value is present in the list, otherwise returns false
     const contains = function(value) {
+        if(!listHead) {
+            return false;
+        }
 
+        let currentNode = listHead;
+
+        while(currentNode.next !== null) {
+            if(currentNode.value === value) {
+                return true;
+            }
+
+            currentNode = currentNode.next;
+        }
+        return false;
     }
 //find(value): returns the index of the node containing value, or NULL if not found
     const find = function(value) {
