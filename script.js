@@ -23,17 +23,28 @@ const linkedList = function() {
     }
 //prepend(value): adds a new node with value set to value at the beginning of the list
     const prepend = function(value) {
-        let newNode = creatNode(value);
-        newNode.next = listHead;
+        let newNode = creatNode(value, listHead);
         listhead = newNode;
     }
 //size: returns total number of nodes in the list
     const size = function() {
+        let sum = 0;
+        if(listHead === null) {
+            return sum;
+        } else if(listHead.value !== null && listHead.next === null) {
+            return 1;
+        }
 
+        let currentNode = listHead;
+        while(currentNode.next !== null) {
+            currentNode = currentNode.next;
+            sum++
+        }
+     return sum;    
     }
 //head: returns the first node in the list
     const head = function() {
-
+    
     }
 //tail: returns the last node in the list
     const tail = function() {
