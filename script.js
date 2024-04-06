@@ -44,7 +44,7 @@ const linkedList = function() {
     }
 //head: returns the first node in the list
     const head = function() {
-    
+        return listHead;
     }
 //tail: returns the last node in the list
     const tail = function() {
