@@ -1,0 +1,71 @@
+//Node factory
+function createNode(value = null, next = null) {
+    return { value, next };
+}
+
+
+//Linked list factory
+const linkedList = function() {
+    let listHead = null;
+//Contains following functions:
+//append(value): adds a new node with value set to value at end of the list
+    const append = function(value) {
+        if(listHead === null) {
+            listhead = createNode(value);
+            return;
+        }
+        let currentNode = listHead;
+        while(currentNode.next !== null) {
+            currentNode = currentNode.next;
+        }
+        currentNode.next = createNode(value);
+        return;
+    }
+//prepend(value): adds a new node with value set to value at the beginning of the list
+    const prepend = function(value) {
+        let newNode = creatNode(value);
+        newNode.next = listHead;
+        listhead = newNode;
+    }
+//size: returns total number of nodes in the list
+    const size = function() {
+
+    }
+//head: returns the first node in the list
+    const head = function() {
+
+    }
+//tail: returns the last node in the list
+    const tail = function() {
+
+    }
+//at(index): returns the node at the given index
+    const at = function(index) {
+
+    }
+//pop: removes the last element from the list
+    const pop = function() {
+
+    }
+//contains(value): returns true if the given value is present in the list, otherwise returns false
+    const contains = function(value) {
+
+    }
+//find(value): returns the index of the node containing value, or NULL if not found
+    const find = function(value) {
+
+    }
+//toString: represents your linked list object as strings. The format should be ( value ) -> ( value ) -> ( null )
+    const toString = function() {
+
+    }
+//insertAt(value, index): Inserts a new node with value at index
+    const insertAt = function(value, index) {
+
+    }
+//removeAt(index): removes a node at a certain index
+    const removeAt = function(index) {
+
+    }
+return { append, prepend, size, head, tail, at, pop, contains, find, toString, insertAt, removeAt}
+}
