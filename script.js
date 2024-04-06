@@ -48,11 +48,26 @@ const linkedList = function() {
     }
 //tail: returns the last node in the list
     const tail = function() {
+        let currentNode = listHead;
+        if(currentNode.next === null) {
+            return currentNode;
+        }
 
+        while(currentNode.next !== null) {
+            currentNode = currentNode.next;
+        }
+        return currentNode;
     }
 //at(index): returns the node at the given index
     const at = function(index) {
-
+        if(!listHead) {
+            return null;
+        }
+        let currentNode = listHead;
+        for(let i = 0; i < index; i++) {
+            currentNode = currentNode.next;
+        }
+        return currentNode;
     }
 //pop: removes the last element from the list
     const pop = function() {
