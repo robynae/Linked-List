@@ -11,7 +11,7 @@ const linkedList = function() {
 //append(value): adds a new node with value set to value at end of the list
     const append = function(value) {
         if(listHead === null) {
-            listhead = createNode(value);
+            listHead = createNode(value);
             return;
         }
         let currentNode = listHead;
@@ -23,16 +23,16 @@ const linkedList = function() {
     }
 //prepend(value): adds a new node with value set to value at the beginning of the list
     const prepend = function(value) {
-        let newNode = creatNode(value, listHead);
-        listhead = newNode;
+        let newNode = createNode(value, listHead);
+        listHead = newNode;
     }
 //size: returns total number of nodes in the list
     const size = function() {
-        let sum = 0;
+        let sum = 1;
         if(listHead === null) {
-            return sum;
+            return 0;
         } else if(listHead.value !== null && listHead.next === null) {
-            return 1;
+            return sum;
         }
 
         let currentNode = listHead;
@@ -87,7 +87,7 @@ const linkedList = function() {
 
         let currentNode = listHead;
 
-        while(currentNode.next !== null) {
+        while(currentNode !== null) {
             if(currentNode.value === value) {
                 return true;
             }
@@ -105,7 +105,7 @@ const linkedList = function() {
             return null
         }
 
-        while(currentNode.next !== null) {
+        while(currentNode !== null) {
             index++;
             if(currentNode.value === value) {
                 return index;
@@ -116,11 +116,23 @@ const linkedList = function() {
     }
 //toString: represents your linked list object as strings. The format should be ( value ) -> ( value ) -> ( null )
     const toString = function() {
+        let listString = ""
+        if(!listHead) {
+            return null;
+        }
 
+        let currentNode = listHead;
+        while(currentNode.next !== null) {
+            listString = listString.concat(`( ${currentNode.value} ) ->`);
+            currentNode = currentNode.next;
+        }
+        listString = listString.concat(`( ${currentNode.value} ) -> ( null )`);
+        console.log(listString);
+        return listString;
     }
 //insertAt(value, index): Inserts a new node with value at index
     const insertAt = function(value, index) {
-
+        
     }
 //removeAt(index): removes a node at a certain index
     const removeAt = function(index) {
@@ -128,3 +140,10 @@ const linkedList = function() {
     }
 return { append, prepend, size, head, tail, at, pop, contains, find, toString, insertAt, removeAt}
 }
+
+
+const myList = linkedList();
+
+myList.append("value1");
+
+myList.toString();
