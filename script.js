@@ -132,10 +132,33 @@ const linkedList = function() {
     }
 //insertAt(value, index): Inserts a new node with value at index
     const insertAt = function(value, index) {
-        
+        if (!listHead) {
+            return null;
+        }
+        const newNode = createNode(value);
+        let currentNode = listHead;
+        for(let i = 0; i < index - 1; i++) {
+            currentNode = currentNode.next;
+        }
+        let indexNode = currentNode.next;
+        currentNode.next = newNode;
+        newNode.next = indexNode;
     }
 //removeAt(index): removes a node at a certain index
     const removeAt = function(index) {
+        if (!listHead) {
+            return null;
+        }
+        if (index > size() || index < 0) {
+            return;
+        }
+        if (index === 0) {
+            listHead = listHead.next;
+            return;
+        } else {
+            const myNode = at(index - 1);
+            myNode.next = myNode.next.next;
+        }
 
     }
 return { append, prepend, size, head, tail, at, pop, contains, find, toString, insertAt, removeAt}
